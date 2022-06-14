@@ -1,0 +1,7 @@
+<div id="edit-component" class="border rounded p-2 shadow-sm">
+  <label class="my-3" for="char-title">Title:</label>
+  <input id="char-title" type="text" class="form-control" [(ngModel)]="detailCharacter.title">
+  <label class="my-3" for="char-description">Description:</label>
+  <textarea id="char-description" class="form-control" [(ngModel)]="detailCharacter.description"></textarea>
+  <button class="btn btn-success my-3" (click)="submitt()">Save</button>
+</div>

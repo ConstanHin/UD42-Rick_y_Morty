@@ -1,0 +1,25 @@
+<main>
+  <section id="section-char-list">
+    <div class="container">
+      <div class="row my-4">
+        <!-- List -->
+        <ul class="col-md-6 list-group">
+          <li class="border list-group-item" *ngFor="let character of charactersList">
+            <div class="item">
+              <h1 class="fs-4 d-inline">{{character.title}}</h1>
+              <button class="btn btn-warning ms-auto m-2 float-end" (click)="details(character)">Edit</button>
+              <button class="btn btn-danger ms-auto m-2 float-end" (click)="delete(character.id)">Delete</button>
+            </div>
+          </li>
+        </ul>
+        <!-- Details -->
+        <div class="col-md-6">
+          <app-character-details
+          [detailCharacter]="detailCharacter"
+          (updateCharEvent)="submit($event)"
+          *ngIf="detailCharacter.title != ''"></app-character-details>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
