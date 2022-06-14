@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/models/character.model';
 import { CharacterService } from 'src/app/serivces/character.service';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-character-list',
@@ -13,6 +14,9 @@ export class CharacterListComponent implements OnInit {
   detailCharacter: Character = new Character();
   page: number = 1;
 
+  formSearchInputId = new FormControl('');
+  formSearchInputName = new FormControl('');
+
   constructor(private charactersService: CharacterService) { }
 
   ngOnInit(): void {
@@ -20,10 +24,49 @@ export class CharacterListComponent implements OnInit {
 
   }
 
-  // Child submit
-  submit(char: Character) {
+  // Submit Update
+  submitUpdate(char: Character) {
     this.detailCharacter = char;
     this.update();
+  }
+
+  // Submit SearchId
+  submitSearchId() {
+    const id = this.formSearchInputId.value
+    console.log(this.formSearchInputId.value, "formValueId");
+    this.getById(id);
+  }
+  // Submit SearchName
+  submitSearchName() {
+    const id = this.formSearchInputName.value
+    console.log(this.formSearchInputName.value, "formValueName");
+    this.getByName(id);
+  }
+
+  // Get by Name
+  getByName(name: string) {
+    this.charactersService.getByTitle(name).subscribe({
+      next: (v) => {
+        this.charactersList = v;
+        console.log(v, " :v")
+      },
+      error: (e) => console.log(e),
+      complete: () => console.log("complete")
+
+    })
+  }
+
+  // Get by ID
+  getById(id: number) {
+    this.charactersService.getItem(id).subscribe({
+      next: (v) => {
+        this.charactersList = [v];
+        console.log(v, " :v")
+      },
+      error: (e) => console.log(e),
+      complete: () => console.log("complete")
+
+    })
   }
 
   // Update

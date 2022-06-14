@@ -20,13 +20,13 @@ export class CharacterService {
     );
   }
 
-  // // Get one by id
+  // Get one by id
 
-  // getItem(id: any): Observable<any> {
-  //   return this.httpClient.get(`${this.apiUrl}/${id}`).pipe(
-  //     catchError(this.handleError)
-  //   );
-  // }
+  getItem(id: any): Observable<any> {
+    return this.httpClient.get(`${this.apiUrl}/${id}`).pipe(
+      catchError(this.handleError)
+    );
+  }
 
   // Create new
 
@@ -52,11 +52,11 @@ export class CharacterService {
   }
 
   // //Get by title
-  // getByTitle(title: any): Observable<any> {
-  //   return this.httpClient.get(`${this.apiUrl}?title_like=${title}`).pipe(
+  getByTitle(title: any): Observable<any> {
+    return this.httpClient.get(`${this.apiUrl}?title_like=${title}`).pipe(
 
-  //   )
-  // }
+    )
+  }
 
   //Handle errors
   handleError(error: HttpErrorResponse) {

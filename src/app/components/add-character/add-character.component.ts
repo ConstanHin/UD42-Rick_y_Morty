@@ -27,7 +27,6 @@ export class AddCharacterComponent implements OnInit {
   }
 
   onSubmit() {
-    console.info("submited");
 
     console.log(this.profileForm.value);
 

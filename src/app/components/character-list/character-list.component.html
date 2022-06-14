@@ -2,35 +2,49 @@
   <section id="section-char-list">
     <div class="container">
       <!-- Search -->
-      <div class="row">
-        <div class="container-fluid">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+      <div class="row my-3">
+        <div class="col-md-3 pe-5">
+
+          <form class="d-flex" role="search" (submit)="submitSearchId()">
+            <input id="idInput" class="form-control me-2" type="search" placeholder="ID" aria-label="Search"
+              [formControl]="formSearchInputId">
+            <button class="btn btn-outline-primary" type="submit">Search</button>
+          </form>
+
+        </div>
+        <div class="col-md-3">
+          <form class="d-flex" role="search" (submit)="submitSearchName()">
+            <input id="nameInput" class="form-control me-2" type="search" placeholder="Name" aria-label="Search"
+              [formControl]="formSearchInputName">
+            <button class="btn btn-outline-primary" type="submit">Search</button>
           </form>
         </div>
+
       </div>
       <!-- List/ Update components -->
       <div class="row my-4">
 
         <!-- List -->
-        <ul class="col-md-6 list-group">
-          <li class="border list-group-item"
-            *ngFor="let character of charactersList | paginate: { itemsPerPage: 7, currentPage: page }">
-            <div class="item">
-              <h1 class="fs-4 d-inline">{{character.title}}</h1>
-              <button class="btn btn-warning ms-auto m-2 float-end" (click)="details(character)">Edit</button>
-              <button class="btn btn-danger ms-auto m-2 float-end" (click)="delete(character.id)">Delete</button>
-            </div>
-          </li>
-        </ul>
+        <div class="col-md-6">
+
+          <ul class="list-group">
+            <li class="border list-group-item"
+              *ngFor="let character of charactersList | paginate: { itemsPerPage: 7, currentPage: page }">
+              <div class="item">
+                <h1 class="fs-4 d-inline">{{character.title}}</h1>
+                <button class="btn btn-warning ms-auto m-2 float-end" (click)="details(character)">Edit</button>
+                <button class="btn btn-danger ms-auto m-2 float-end" (click)="delete(character.id)">Delete</button>
+              </div>
+            </li>
+          </ul>
+        </div>
 
         <!-- Details -->
         <div class="col-md-6">
           <!-- Link to create new character-->
           <button class="btn btn-success my-2" routerLink="/add-character">Add New Character</button>
           <!-- Update component -->
-          <app-character-details [detailCharacter]="detailCharacter" (updateCharEvent)="submit($event)"
+          <app-character-details [detailCharacter]="detailCharacter" (updateCharEvent)="submitUpdate($event)"
             *ngIf="detailCharacter.title != ''">
           </app-character-details>
         </div>
