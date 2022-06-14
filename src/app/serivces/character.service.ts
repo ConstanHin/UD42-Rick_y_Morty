@@ -28,13 +28,13 @@ export class CharacterService {
   //   );
   // }
 
-  // // Create new
+  // Create new
 
-  // create(data: any): Observable<any> {
-  //   return this.httpClient.post(this.apiUrl, data).pipe(
-  //     catchError(this.handleError)
-  //   );
-  // }
+  create(data: any): Observable<any> {
+    return this.httpClient.post(this.apiUrl, data).pipe(
+      catchError(this.handleError)
+    );
+  }
 
   // Update
   update(id:any, data:any): Observable<any> {

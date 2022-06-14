@@ -15,6 +15,9 @@
         </ul>
         <!-- Details -->
         <div class="col-md-6">
+          <!-- Link to create new character-->
+          <button class="btn btn-success my-2" routerLink="/add-character">Add New Character</button>
+          <!-- Update component -->
           <app-character-details [detailCharacter]="detailCharacter" (updateCharEvent)="submit($event)"
             *ngIf="detailCharacter.title != ''">
           </app-character-details>

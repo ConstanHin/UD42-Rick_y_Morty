@@ -1,1 +1,36 @@
-<p>add-character works!</p>
+<main class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form class="rounded border p-3 shadow-sm" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <h1 class="fs-3">Add new Character</h1>
+
+        <label class="mt-2" for="title">Name: </label>
+        <input class="d-block w-75 border rounded" id="title" type="text" formControlName="title">
+
+        <label class="mt-2" for="description">Description: </label>
+        <input class="d-block w-75 border rounded" id="description" type="text" formControlName="description">
+        <!--Submit button-->
+        <button class="btn btn-success my-2" type="submit" [disabled]="!profileForm.valid || submited">Submit</button>
+      </form>
+
+      <!-- Validation errors -->
+      <ul class="alert alert-danger mt-3" *ngIf="profileForm.invalid && (profileForm.dirty || profileForm.touched)">
+
+        <li class="m-1 p-0 " *ngIf="profileForm.get('title')?.errors?.['required']">
+          Name is required.
+        </li>
+        <li class="m-1 p-0 " *ngIf="profileForm.get('description')?.errors?.['required']">
+          Description is required.
+        </li>
+
+      </ul>
+
+      <!-- Success request message-->
+      <div class="alert alert-success my-2" *ngIf="success === true">The character was added successfuly!</div>
+
+      <!-- Fail request message-->
+      <div class="alert alert-danger my-2" *ngIf="fail === true">Failed adding the character!</div>
+
+    </div>
+  </div>
+</main>

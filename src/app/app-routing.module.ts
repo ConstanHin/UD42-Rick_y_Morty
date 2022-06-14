@@ -4,12 +4,14 @@ import { CharactersViewComponent } from './characters-view/characters-view/chara
 import { HomeCompComponent } from './home-comp/home-comp.component';
 import { AboutComponent } from './about/about.component';
 import { CharacterListComponent } from './components/character-list/character-list.component';
+import { AddCharacterComponent } from './components/add-character/add-character.component';
 
 const routes: Routes = [
   {path: '', component: HomeCompComponent},
   {path: 'characters', component: CharactersViewComponent},
   {path: 'about', component: AboutComponent},
   {path: 'lista-characters', component: CharacterListComponent},
+  {path: 'add-character', component: AddCharacterComponent},
 ];
 
 @NgModule({
