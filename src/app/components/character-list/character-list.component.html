@@ -4,7 +4,8 @@
       <div class="row my-4">
         <!-- List -->
         <ul class="col-md-6 list-group">
-          <li class="border list-group-item" *ngFor="let character of charactersList">
+          <li class="border list-group-item"
+            *ngFor="let character of charactersList | paginate: { itemsPerPage: 7, currentPage: page }">
             <div class="item">
               <h1 class="fs-4 d-inline">{{character.title}}</h1>
               <button class="btn btn-warning ms-auto m-2 float-end" (click)="details(character)">Edit</button>
@@ -14,10 +15,14 @@
         </ul>
         <!-- Details -->
         <div class="col-md-6">
-          <app-character-details
-          [detailCharacter]="detailCharacter"
-          (updateCharEvent)="submit($event)"
-          *ngIf="detailCharacter.title != ''"></app-character-details>
+          <app-character-details [detailCharacter]="detailCharacter" (updateCharEvent)="submit($event)"
+            *ngIf="detailCharacter.title != ''">
+          </app-character-details>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <pagination-controls (pageChange)="page = $event"></pagination-controls>
         </div>
       </div>
     </div>

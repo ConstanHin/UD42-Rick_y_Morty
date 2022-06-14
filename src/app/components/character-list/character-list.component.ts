@@ -11,6 +11,7 @@ export class CharacterListComponent implements OnInit {
 
   charactersList: Character[] = [];
   detailCharacter: Character = new Character();
+  page: number = 1;
 
   constructor(private charactersService: CharacterService) { }
 
