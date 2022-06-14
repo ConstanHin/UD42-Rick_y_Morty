@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/models/character.model';
 import { CharacterService } from 'src/app/serivces/character.service';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-character-list',

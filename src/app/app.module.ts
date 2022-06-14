@@ -13,6 +13,12 @@ import { AddCharacterComponent } from './components/add-character/add-character.
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { HomeComponent } from './components/auth/home/home.component';
+import { ProfileComponent } from './components/auth/profile/profile.component';
+import { BoardAdminComponent } from './components/auth/board-admin/board-admin.component';
+import { BoardModeratorComponent } from './components/auth/board-moderator/board-moderator.component';
+import { BoardUserComponent } from './components/auth/board-user/board-user.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +28,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     AboutComponent,
     AddCharacterComponent,
     CharacterDetailsComponent,
-    CharacterListComponent
+    CharacterListComponent,
+    RegisterComponent,
+    HomeComponent,
+    ProfileComponent,
+    BoardAdminComponent,
+    BoardModeratorComponent,
+    BoardUserComponent
   ],
   imports: [
     BrowserModule,
