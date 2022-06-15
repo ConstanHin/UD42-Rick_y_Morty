@@ -1,1 +1,36 @@
-<p>login works!</p>
+<main class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form class="rounded border p-3 shadow-sm" [formGroup]="loginGroupFrom" (ngSubmit)="onSubmit()">
+        <h1 class="fs-3">Login</h1>
+
+        <label class="mt-2" for="username">Username: </label>
+        <input class="d-block w-75 border rounded" id="username" type="text" formControlName="username">
+
+        <label class="mt-2" for="password">Password: </label>
+        <input class="d-block w-75 border rounded" id="password" type="password" formControlName="password">
+        <!--Submit button-->
+        <button class="btn btn-success my-2" type="submit" [disabled]="!loginGroupFrom.valid || submited">Submit</button>
+      </form>
+
+      <!-- Validation errors -->
+      <ul class="alert alert-danger mt-3" *ngIf="loginGroupFrom.invalid && (loginGroupFrom.dirty || loginGroupFrom.touched)">
+
+        <li class="m-1 p-0 " *ngIf="loginGroupFrom.get('username')?.errors?.['required']">
+          Username is required.
+        </li>
+        <li class="m-1 p-0 " *ngIf="loginGroupFrom.get('password')?.errors?.['required']">
+          Password is required.
+        </li>
+
+      </ul>
+
+      <!-- Success request message-->
+      <div class="alert alert-success my-2" *ngIf="success === true">Logged in successfuly!</div>
+
+      <!-- Fail request message-->
+      <div class="alert alert-danger my-2" *ngIf="fail === true">Login failed!</div>
+
+    </div>
+  </div>
+</main>

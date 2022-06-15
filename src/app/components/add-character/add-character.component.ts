@@ -68,11 +68,5 @@ export class AddCharacterComponent implements OnInit {
 
   get description() { return this.profileForm.get('description')?.value; }
 
-  // /**
-  //  * Show success message
-  //  */
-  // showSuccessMessage() {
-
-  // }
 
 }

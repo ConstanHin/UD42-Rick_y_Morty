@@ -18,6 +18,16 @@
         <li class="nav-item">
           <a class="nav-link text-light" routerLink="/about" >About</a>
         </li>
+        <li *ngIf="user === undefined" class="nav-item">
+          <a class="nav-link text-light" routerLink="/login">Login</a>
+        </li>
+        <!--Logged in-->
+        <li *ngIf="user != undefined" class="nav-item">
+          <label class="nav-link text-light">{{user}}</label>
+        </li>
+        <li *ngIf="user != undefined" class="nav-item">
+          <button class="nav-link text-light btn rounded-0" (click)="logout()" >Logout</button>
+        </li>
 
       </ul>
     </div>

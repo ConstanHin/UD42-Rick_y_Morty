@@ -19,6 +19,7 @@ import { ProfileComponent } from './components/auth/profile/profile.component';
 import { BoardAdminComponent } from './components/auth/board-admin/board-admin.component';
 import { BoardModeratorComponent } from './components/auth/board-moderator/board-moderator.component';
 import { BoardUserComponent } from './components/auth/board-user/board-user.component';
+import { LoginComponent } from './components/auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { BoardUserComponent } from './components/auth/board-user/board-user.comp
     ProfileComponent,
     BoardAdminComponent,
     BoardModeratorComponent,
-    BoardUserComponent
+    BoardUserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
