@@ -23,6 +23,9 @@ export class NavbarComponent implements OnInit {
 
   }
 
+  /**
+   * Logout
+   */
   logout() {
 
     console.log("logout clicked");
@@ -30,6 +33,13 @@ export class NavbarComponent implements OnInit {
     this.user = undefined;
     this.role = undefined;
 
+  }
+
+  /**
+   * Register
+   */
+  signUp() {
+    // this.loginService.
   }
 
 }
