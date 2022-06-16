@@ -53,6 +53,9 @@ export class LoginComponent implements OnInit {
         // Save login in sessionStorage
         window.sessionStorage.setItem("auth-token", v.token)
 
+        // Save login username in sessionStorage
+        window.sessionStorage.setItem("auth-username", username)
+
         // Redirect to home (TODO: show a successfuly message )
         this.router.navigate(['/']);
       },

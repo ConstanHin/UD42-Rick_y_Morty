@@ -36,6 +36,8 @@ export class LoginService {
   }
 
   getUser$(): Observable<any> {
+    this.user$.asObservable().subscribe((v) => console.log(v));
+
     return this.user$.asObservable();
   }
 }

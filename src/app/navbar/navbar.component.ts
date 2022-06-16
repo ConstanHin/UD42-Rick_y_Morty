@@ -14,10 +14,13 @@ export class NavbarComponent implements OnInit {
   constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
+    // If there is a username in storage assign it
+    const usernameSession = window.sessionStorage.getItem("auth-username")
+    if (usernameSession) this.user = usernameSession;
 
     this.loginService.getUser$().subscribe({
-      next: (v) => { this.user = v.username},
-      error: (e) => { console.log(e) },
+      next: (v) => { this.user = v.username },
+      error: (e) => { console.error(e, "asd") },
       complete: () => console.log("complete getUser")
     })
 

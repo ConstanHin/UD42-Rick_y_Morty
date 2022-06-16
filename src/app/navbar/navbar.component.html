@@ -23,7 +23,7 @@
         </li>
         <!--Logged in-->
         <li *ngIf="user != undefined" class="nav-item">
-          <label class="nav-link text-light">{{user}}</label>
+          <label class="nav-link text-light" routerLink="/user-board">{{user}}</label>
         </li>
         <li *ngIf="user != undefined" class="nav-item">
           <button class="nav-link text-light btn rounded-0" (click)="logout()" >Logout</button>
